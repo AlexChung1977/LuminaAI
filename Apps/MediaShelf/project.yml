@@ -1,0 +1,30 @@
+name: MediaShelf
+options:
+  bundleIdPrefix: app.mediashelf
+  deploymentTarget:
+    macOS: "14.0"
+    iOS: "17.0"
+  createIntermediateGroups: true
+settings:
+  BASE_SDK: macosx
+packages:
+  MediaShelf:
+    path: ../..
+targets:
+  MediaShelf:
+    type: application
+    supportedDestinations: [macOS, iOS]
+    sources:
+      - path: MediaShelf
+    dependencies:
+      - package: MediaShelf
+        product: MediaShelfCore
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: app.mediashelf.MediaShelf
+      GENERATE_INFOPLIST_FILE: YES
+      MARKETING_VERSION: "0.1.0"
+      CURRENT_PROJECT_VERSION: 1
+      INFOPLIST_KEY_CFBundleDisplayName: MediaShelf
+      INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.photography
+      INFOPLIST_KEY_NSLocalNetworkUsageDescription: MediaShelf 需要存取區網 NAS（SMB）。
+      INFOPLIST_KEY_NSPhotoLibraryUsageDescription: 可選讀取本機照片供瀏覽。
